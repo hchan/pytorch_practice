@@ -1,13 +1,15 @@
 name: pytorch_env
 channels:
   - pytorch
-  - nvidia/label/cuda-12.6.0
+  - nvidia/label/cuda-12.4.0
   - conda-forge
   - defaults
 dependencies:
   - python=3.12
   - pytorch=2.5.1
+  - typing-extensions=4.12.2
   - torchvision
   - torchaudio
   - cuda
+  - numpy
 
