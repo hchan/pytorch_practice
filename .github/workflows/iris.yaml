@@ -31,19 +31,18 @@ jobs:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
           hashFiles('environment.yml') }}
 
-    - name: Use Cache
-      if: steps.cache.outputs.cache-hit == 'true'
-      uses: conda-incubator/setup-miniconda@v3
-      with:
-        auto-update-conda: true
-        activate-environment: pytorch_env
+    # - name: Use Cache
+    #   if: steps.cache.outputs.cache-hit == 'true'
+    #   uses: conda-incubator/setup-miniconda@v3
+    #   with:
+    #     auto-update-conda: true
+    #     activate-environment: pytorch_env
         
-    - name: Use Cache part 2
-      run: |
-        conda activate pytorch_env
+    # - name: Use Cache part 2
+    #   run: |
+    #     conda activate pytorch_env
 
     - name: Set up Anaconda
-      if: steps.cache.outputs.cache-hit != 'true'  
       uses: conda-incubator/setup-miniconda@v3
       with:
         auto-update-conda: true
