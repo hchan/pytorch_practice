@@ -55,6 +55,7 @@ sample_input = X_train_tensor[:1]  # A single data point for the graph
 sample_output = model(sample_input)  # Forward pass
 
 # Visualize the computational graph
+# We only need a single forward pass to visualize the graph (at least I hope so)
 graph = make_dot(sample_output, params=dict(model.named_parameters()), show_attrs=True, show_saved=True)
 graph.render("iris_model_graph", format="png", cleanup=True)  # Save graph as PNG
 
