@@ -38,8 +38,11 @@ jobs:
         auto-update-conda: true
         activate-environment: pytorch_env
         
-
-
+    - name: Use Cache part 2
+      run: |
+        ls -l ~
+        source ~/envs/pytorch_env/bin/activate
+        
     - name: Set up Anaconda
       if: steps.cache.outputs.cache-hit != 'true'  
       uses: conda-incubator/setup-miniconda@v3
