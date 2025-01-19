@@ -19,6 +19,7 @@ jobs:
 
     - name: Cache conda
       uses: actions/cache@v4
+      id: cache
       env:
         # Increase this value to reset cache if etc/example-environment.yml has not changed
         CACHE_NUMBER: 0
@@ -29,6 +30,14 @@ jobs:
         key:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
           hashFiles('environment.yml') }}
+
+    - name: Use Cache
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: |
+        # generate me line to init conda
+        find ~/conda_pkgs_dir
+        find ~/envs
+
 
     - name: Set up Anaconda
       uses: conda-incubator/setup-miniconda@v3
