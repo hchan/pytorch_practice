@@ -50,6 +50,7 @@ class WineNN(nn.Module):
 
 # Check if CUDA is available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f'Using device: {device}')
 
 # Initialize the model, loss function, and optimizer
 model = WineNN().to(device)

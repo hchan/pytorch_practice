@@ -1,7 +1,8 @@
 name: pytorch_env
 channels:
   - pytorch
-  - nvidia/label/cuda-12.4.0
+  - conda-forge
+  - nvidia/label/cuda-12.4.0  # Include this line only if you have a GPU
   - conda-forge
   - defaults
 dependencies:
