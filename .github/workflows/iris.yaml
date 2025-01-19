@@ -10,7 +10,9 @@ on:
 jobs:
   iris:
     runs-on: ubuntu-24.04
-
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -31,7 +33,7 @@ jobs:
     - name: Set up Anaconda
       uses: conda-incubator/setup-miniconda@v3
       with:
-        auto-update-conda: false
+        auto-update-conda: true
         activate-environment: pytorch_env
         environment-file: environment.yml
         use-only-tar-bz2: true
@@ -44,7 +46,6 @@ jobs:
     
     - name: Run iris
       run: |
-        conda activate pytorch_env
         python iris_pytorch_example.py
    
     
