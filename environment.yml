@@ -11,7 +11,7 @@ dependencies:
   - torchvision
   - torchaudio
   - cuda
-  - numpy
+  - numpy=1.25.2
   - scikit-learn
   - conda-lock
   - setuptools
