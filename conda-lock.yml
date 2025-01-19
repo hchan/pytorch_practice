@@ -13,7 +13,7 @@
 version: 1
 metadata:
   content_hash:
-    linux-64: 28832e13d9cf0f79785c1ef8fc4e0b133f897201772f570efba694d00436dbd4
+    linux-64: 48af933d4699fa097a090df61b453133fc5813c29bacc3db63b4da3e1bcbc135
   channels:
   - url: conda-forge
     used_env_vars: []
@@ -2257,22 +2257,21 @@ package:
   category: main
   optional: false
 - name: numpy
-  version: 2.2.1
+  version: 1.25.2
   manager: conda
   platform: linux-64
   dependencies:
-    __glibc: '>=2.17,<3.0.a0'
     libblas: '>=3.9.0,<4.0a0'
     libcblas: '>=3.9.0,<4.0a0'
-    libgcc: '>=13'
+    libgcc-ng: '>=12'
     liblapack: '>=3.9.0,<4.0a0'
-    libstdcxx: '>=13'
+    libstdcxx-ng: '>=12'
     python: '>=3.11,<3.12.0a0'
     python_abi: 3.11.*
-  url: https://conda.anaconda.org/conda-forge/linux-64/numpy-2.2.1-py311hf916aec_0.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/numpy-1.25.2-py311h64a7726_0.conda
   hash:
-    md5: 54a2d01ec2cfc01644f17d25978b0ecf
-    sha256: effedc59ede8fa025df3a1e14d876e03e6686d808d8b5da1e9a34e780d8f1a65
+    md5: 71fd6f1734a0fa64d8f852ae7156ec45
+    sha256: 2e74d2f11d85e0a796a14b63702c7a963244795c52f92ea98b6f2c0d7620c065
   category: main
   optional: false
 - name: openfst
