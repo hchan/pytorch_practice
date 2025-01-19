@@ -44,6 +44,7 @@ jobs:
     
     - name: Run iris
       run: |
+        conda activate pytorch_env
         python iris_pytorch_example.py
    
     
