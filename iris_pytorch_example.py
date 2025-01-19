@@ -85,8 +85,8 @@ with torch.no_grad():
         # Classes in THIS example are 0, 1, 2
         # 0 = Setosa, 1 = Versicolor, 2 = Virginica 
         # the size of the array is the same as the batch size
-        predicted = torch.argmax(outputs, dim=1)  # Get the iris class with highest probability
-        true_labels = torch.argmax(labels, dim=1)  # Get the true iris class
+        predicted = torch.argmax(outputs, dim=1)  # Get the iris class (species) with highest probability
+        true_labels = torch.argmax(labels, dim=1)  # Get the true iris class (species)
         correct += (predicted == true_labels).sum().item()
         total += labels.size(0)
 
