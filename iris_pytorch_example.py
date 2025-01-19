@@ -64,11 +64,11 @@ for epoch in range(epochs):
     model.train()
     running_loss = 0.0
     for inputs, labels in train_loader:
-        optimizer.zero_grad()
+        optimizer.zero_grad() # reset the gradients
         outputs = model(inputs)
         loss = criterion(outputs, torch.argmax(labels, dim=1))  # CrossEntropyLoss expects class indices
-        loss.backward()
-        optimizer.step()
+        loss.backward() # TBackward (Tensor Backward)
+        optimizer.step() # Accumulate the gradients
         running_loss += loss.item()
 
     if (epoch + 1) % 10 == 0:
