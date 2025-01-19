@@ -48,7 +48,7 @@ class IrisNN(nn.Module):
 # Initialize the model, loss function, and optimizer
 model = IrisNN()
 criterion = nn.CrossEntropyLoss()  # Use CrossEntropyLoss for multi-class classification
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=0.001) # oh, model parameters ARE tensors, but with requires_grad=True
 
 # Single forward pass for visualization
 sample_input = X_train_tensor[:1]  # A single data point for the graph
