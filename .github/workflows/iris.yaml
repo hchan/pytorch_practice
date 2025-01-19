@@ -30,7 +30,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v3
       with:
         auto-update-conda: false
-        activate-environment: pytorch-env
+        activate-environment: explicit-env
         environment-file: conda-lock.yml
 
     - name: Debug Environment
