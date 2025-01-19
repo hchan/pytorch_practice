@@ -22,11 +22,11 @@ jobs:
       id: cache
       env:
         # Increase this value to reset cache if environment.yml has not changed
-        CACHE_NUMBER: 0
+        CACHE_NUMBER: 1
       with:
         path: |
           ~/conda_pkgs_dir
-          ~/envs
+          /usr/share/miniconda
         key:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
           hashFiles('environment.yml') }}
