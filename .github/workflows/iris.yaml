@@ -39,5 +39,9 @@ jobs:
         conda env list
         conda list
         python --version
+    
+    - name: Run iris
+      run: |
+        python iris_pytorch_example.py
    
     
