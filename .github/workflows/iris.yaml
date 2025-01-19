@@ -24,7 +24,7 @@ jobs:
         path: ~/conda_pkgs_dir
         key:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-          hashFiles('etc/example-environment.yml') }}
+          hashFiles('environment.yml') }}
 
     - name: Set up Anaconda
       uses: conda-incubator/setup-miniconda@v3
