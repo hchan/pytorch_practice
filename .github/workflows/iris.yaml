@@ -33,7 +33,6 @@ jobs:
       with:
         auto-update-conda: false
         activate-environment: pytorch_env
-        channel-priority: strict
         environment-file: environment.yml
         use-only-tar-bz2: true
 
