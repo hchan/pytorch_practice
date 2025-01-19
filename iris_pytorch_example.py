@@ -36,12 +36,12 @@ class IrisNN(nn.Module):
     def __init__(self):
         super(IrisNN, self).__init__()
         self.fc1 = nn.Linear(4, 64)  # 4 input features (Iris dataset has 4 features)
-        self.relu = nn.ReLU()
+        self.relu = nn.ReLU() # ReLU activation function
         self.fc2 = nn.Linear(64, 3)  # 3 output classes (Iris dataset has 3 classes)
 
     def forward(self, x):
         x = self.fc1(x)
-        x = self.relu(x)
+        x = self.relu(x) # Apply ReLU activation
         x = self.fc2(x)
         return x
 
