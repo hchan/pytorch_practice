@@ -40,9 +40,8 @@ jobs:
         
     - name: Use Cache part 2
       run: |
-        ls -l ~
-        source ~/envs/pytorch_env/bin/activate
-        
+        conda activate pytorch_env
+
     - name: Set up Anaconda
       if: steps.cache.outputs.cache-hit != 'true'  
       uses: conda-incubator/setup-miniconda@v3
