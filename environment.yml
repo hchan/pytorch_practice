@@ -1,9 +1,8 @@
 name: pytorch_env
 channels:
-  - pytorch
   - conda-forge
+  - pytorch  
   - nvidia/label/cuda-12.4.0  # Include this line only if you have a GPU
-  - conda-forge
   - defaults
 dependencies:
   - python=3.12
@@ -14,3 +13,4 @@ dependencies:
   - cuda
   - numpy
   - scikit-learn
+  - conda-lock
