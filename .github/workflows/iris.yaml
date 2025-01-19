@@ -29,6 +29,7 @@ jobs:
     - name: Set up Anaconda
       uses: conda-incubator/setup-miniconda@v3
       with:
+        auto-update-conda: false
         activate-environment: pytorch-env
         environment-file: environment.yml
         use-only-tar-bz2: true
@@ -39,3 +40,4 @@ jobs:
         conda list
         python --version
    
+    
