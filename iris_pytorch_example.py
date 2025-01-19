@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from torch import nn, optim
 from torch.utils.data import DataLoader, TensorDataset
+from torchviz import make_dot  # Import torchviz
 
 # Load the Iris dataset
 iris = load_iris()
@@ -44,8 +45,16 @@ class IrisNN(nn.Module):
 
 # Initialize the model, loss function, and optimizer
 model = IrisNN()
-criterion = nn.BCEWithLogitsLoss()  # Binary Cross-Entropy Loss (since one-hot encoded)
+criterion = nn.CrossEntropyLoss()  # Use CrossEntropyLoss for multi-class classification
 optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+# Single forward pass for visualization
+sample_input = X_train_tensor[:1]  # A single data point for the graph
+sample_output = model(sample_input)  # Forward pass
+
+# Visualize the computational graph
+graph = make_dot(sample_output, params=dict(model.named_parameters()), show_attrs=True, show_saved=True)
+graph.render("iris_model_graph", format="png", cleanup=True)  # Save graph as PNG
 
 # Training the model
 epochs = 100
@@ -55,7 +64,7 @@ for epoch in range(epochs):
     for inputs, labels in train_loader:
         optimizer.zero_grad()
         outputs = model(inputs)
-        loss = criterion(outputs, labels)
+        loss = criterion(outputs, torch.argmax(labels, dim=1))  # CrossEntropyLoss expects class indices
         loss.backward()
         optimizer.step()
         running_loss += loss.item()
@@ -70,7 +79,7 @@ total = 0
 with torch.no_grad():
     for inputs, labels in test_loader:
         outputs = model(inputs)
-        predicted = torch.argmax(torch.sigmoid(outputs), dim=1)  # Get the class with highest probability
+        predicted = torch.argmax(outputs, dim=1)  # Get the class with highest probability
         true_labels = torch.argmax(labels, dim=1)  # Get the true class
         correct += (predicted == true_labels).sum().item()
         total += labels.size(0)

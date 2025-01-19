@@ -15,3 +15,8 @@ dependencies:
   - scikit-learn=1.6.1
   - conda-lock
   - setuptools
+  - graphviz
+  - python-graphviz
+  
+  - pip:
+    - torchviz
