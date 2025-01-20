@@ -47,6 +47,11 @@ jobs:
     
     - name: Run iris
       run: |
-        python iris_pytorch_example.py
+        python iris_pytorch_example.py | tee summary.txt
+    
+    - name: Generate Job Summary
+      run: |
+        cat summary.txt >> $GITHUB_JOB_SUMMARY
+
    
     
