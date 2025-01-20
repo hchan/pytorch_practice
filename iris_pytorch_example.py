@@ -9,6 +9,12 @@ from torchviz import make_dot  # Import torchviz
 
 # Load the Iris dataset
 iris = load_iris()
+# a couple of ways to view the dataset
+# use GH copilot to generate print statements
+# OR (preferred)
+# use the python debugger to inspect the data
+# I personally like VCCode's debugger
+
 X = iris.data
 y = iris.target
 
