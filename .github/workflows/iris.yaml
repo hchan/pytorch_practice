@@ -49,9 +49,17 @@ jobs:
       run: |
         python iris_pytorch_example.py | tee summary.txt
     
-    - name: Generate Job Summary
+    - name: Upload Image as an Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: iris_model_graph
+        path: iris_model_graph.png
+    
+    - name: Generate Step Summary
       run: |
-        cat summary.txt >> $GITHUB_JOB_SUMMARY
+        cat summary.txt >> $GITHUB_STEP_SUMMARY
+        # echo "[Download Artifact](https://github.com/${{ github.repository }}/actions/artifacts/$ARTIFACT_ID)" >> $GITHUB_STEP_SUMMARY
+
 
    
     
