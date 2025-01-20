@@ -58,8 +58,10 @@ jobs:
     - name: Generate Step Summary
       run: |
         cat summary.txt >> $GITHUB_STEP_SUMMARY
-        # echo "[Download Artifact](https://github.com/${{ github.repository }}/actions/artifacts/$ARTIFACT_ID)" >> $GITHUB_STEP_SUMMARY
+        echo '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..." alt="Sample Image" />' >> $GITHUB_STEP_SUMMARY
 
+    # TODO
+    # Create GHA step to create GH Pages
 
    
     
