@@ -58,7 +58,6 @@ jobs:
     - name: Generate Step Summary
       run: |
         cat summary.txt >> $GITHUB_STEP_SUMMARY
-        echo '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAEklEQVR4nGP8z4APMOGVHbHSAEEsAROxCnMTAAAAAElFTkSuQmCC" alt="Red Dot" />' >> $GITHUB_STEP_SUMMARY
 
     # TODO
     # Create GHA step to create GH Pages
