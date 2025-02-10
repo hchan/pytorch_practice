@@ -17,6 +17,7 @@ dependencies:
   - setuptools
   - graphviz
   - python-graphviz
+  - tensorboard
   
   - pip:
     - torchviz
