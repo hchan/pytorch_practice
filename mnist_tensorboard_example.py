@@ -6,6 +6,9 @@ import torchvision.transforms as transforms
 from torch.utils.tensorboard import SummaryWriter
 
 # 🚀 Initialize TensorBoard
+# Start TensorBoard from CLI
+# In your terminal, run the following command:
+# tensorboard --logdir=runs/MNIST
 writer = SummaryWriter("runs/MNIST")
 
 # 🔹 Load MNIST dataset
@@ -41,9 +44,11 @@ model = CNN().to(device)  # Move model to device
 criterion = nn.CrossEntropyLoss()  # Define loss function
 optimizer = optim.Adam(model.parameters(), lr=0.001)  # Define optimizer
 
-# 🔹 Log model graph to TensorBoard
-dummy_input = torch.randn(1, 1, 28, 28).to(device)  # Create a dummy input
-writer.add_graph(model, dummy_input)  # Add model graph to TensorBoard
+# 🔹 Log model graph to TensorBoardtrain_loader_iter = iter(train_loader)  # Create an iterator from train_loader
+train_loader_iter = iter(train_loader)  # Create an iterator from train_loader
+images, _ = next(train_loader_iter)  # Get the first batch of training images
+images = images.to(device)  # Move images to device
+writer.add_graph(model, images)  # Add model graph to TensorBoard
 
 # 🔹 Training loop
 num_epochs = 5  # Number of epochs
